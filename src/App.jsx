@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import logo from '../logo.png';
 
 const productAreas = [
@@ -48,24 +49,52 @@ const commitments = [
 ];
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div className="page-shell">
       <header className="site-header">
         <div className="header-inner">
-          <a className="brand" href="#inicio" aria-label="Ir al inicio de Equs Farma">
+          <a
+            className="brand"
+            href="#inicio"
+            aria-label="Ir al inicio de Equs Farma"
+            onClick={handleNavClick}
+          >
             <img src={logo} alt="Logo de Equs Farma" />
           </a>
 
-          <nav className="main-nav" aria-label="Secciones principales">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#sobre">Nosotros</a>
-            <a href="#metricas">Trayectoria</a>
-            <a href="#compromiso">Compromiso</a>
-            <a href="#contacto">Contacto</a>
+          <button
+            className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
+            type="button"
+            aria-expanded={menuOpen}
+            aria-controls="main-navigation"
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            onClick={() => setMenuOpen((current) => !current)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <nav
+            id="main-navigation"
+            className={`main-nav ${menuOpen ? 'is-open' : ''}`}
+            aria-label="Secciones principales"
+          >
+            <a href="#inicio" onClick={handleNavClick}>Inicio</a>
+            <a href="#servicios" onClick={handleNavClick}>Servicios</a>
+            <a href="#sobre" onClick={handleNavClick}>Nosotros</a>
+            <a href="#metricas" onClick={handleNavClick}>Trayectoria</a>
+            <a href="#compromiso" onClick={handleNavClick}>Compromiso</a>
+            <a href="#contacto" onClick={handleNavClick}>Contacto</a>
           </nav>
 
-          <a className="nav-cta" href="#contacto">
+          <a className="nav-cta" href="#contacto" onClick={handleNavClick}>
             Contacto
           </a>
         </div>
