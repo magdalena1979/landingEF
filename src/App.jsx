@@ -254,7 +254,7 @@ function App() {
         <div className="section-inner footer-inner">
           <div className="footer-info">
           <p className="footer-title">Equs Farma</p>
-          <p>Pasaje Arquímedes 2440 C1437GYS - CABA</p>
+          <p>FERNANDEZ D.L.CRUZ A 1360 1437-CIUDAD AUTONOMA BUENOS AIRES</p>
           <a href="tel:+5491124594476">+54 9 11 2459-4476</a>
           </div>
 
